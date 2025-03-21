@@ -1,0 +1,24 @@
+<mat-toolbar color="primary">
+  <span>Angular Dashboard</span>
+</mat-toolbar>
+
+<div class="container">
+  <mat-form-field>
+    <mat-select [(value)]="chartType" (selectionChange)="chartUpdate()">
+      <mat-option value="">Chart Type </mat-option>
+      <mat-option value="bar">Bar Chart</mat-option>
+      <mat-option value="line">Line Chart</mat-option>
+      <mat-option value="pie">Pie Chart</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngIf="chartType === 'bar'">
+  <app-bar-chart [bar_data]="data"></app-bar-chart>
+</div>
+<div *ngIf="chartType === 'line'">
+  <app-line-chart [line_data]="data"></app-line-chart>
+</div>
+<div *ngIf="chartType === 'pie'">
+  <app-pie-chart [pie_data]="data"></app-pie-chart>
+</div>

@@ -1,0 +1,19 @@
+{
+  "sales": [
+    { "name": "Product A", "value": 5000 },
+    { "name": "Product B", "value": 3200 },
+    { "name": "Product C", "value": 2800 }
+  ],
+  "performance": [
+    {
+      "name": "Performance",
+      "series": [
+        { "name": "Q1", "value": 6000 },
+        { "name": "Q2", "value": 7500 },
+        { "name": "Q3", "value": 8200 },
+        { "name": "Q4", "value": 9100 },
+        { "name": "Q4", "value": 5000 }
+      ]
+    }
+  ]
+}
