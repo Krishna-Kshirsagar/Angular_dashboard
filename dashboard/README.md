@@ -1,59 +1,125 @@
-# Dashboard
+Angular Dashboard with ngx-charts
+This is an Angular dashboard application that allows you to display dynamic data using various chart types such as Bar, Line, and Pie charts. The charts are built using the ngx-charts library.
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+Features
+Display dynamic data in the form of Bar, Line, and Pie charts.
 
-## Development server
+Use Angular Material components for the UI.
 
-To start a local development server, run:
+Fetch data from a mock JSON file.
 
-```bash
+Responsive charts that automatically update based on the selected chart type.
+
+Requirements
+Before you begin, ensure you have met the following requirements:
+
+Node.js installed on your machine.
+
+Angular CLI installed globally.
+
+Installation
+Clone the repository to your local machine:
+
+bash
+Copy
+git clone <https://github.com/Krishna-Kshirsagar/Angular_dashboard.git>
+cd <dashboard>
+Install dependencies:
+
+bash
+Copy
+npm install
+Serve the application:
+
+Run the application locally using Angular CLI:
+
+bash
+Copy
 ng serve
-```
+Your application should now be available at http://localhost:4200/.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+File Structure
+src/
+│
+├── app/
+│ ├── components/
+│ │ ├── bar-chart/
+│ │ ├── line-chart/
+│ │ └── pie-chart/
+│ ├── service/
+│ │ └── data.service.ts
+│ ├── app.component.ts
+│ ├── app.component.html
+│ ├── app.component.scss
+│ ├── app.module.ts
+│ └── app-routing.module.ts
+└── assets/
+└── data/
+└── metrics.json
+Main Files to Note
+app.component.ts: The main component that controls the state of the dashboard and handles data fetching and chart type selection.
 
-## Code scaffolding
+app.component.html: Contains the UI layout with Material Design elements like the toolbar, form field, and select dropdown for choosing chart types.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+bar-chart.component.ts, line-chart.component.ts, pie-chart.component.ts: Components that render Bar, Line, and Pie charts respectively.
 
-```bash
-ng generate component component-name
-```
+data.service.ts: A service for fetching data from a mock JSON file (assets/data/metrics.json).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Usage
+Select Chart Type:
 
-```bash
-ng generate --help
-```
+The user can choose between three chart types: Bar, Line, and Pie charts.
 
-## Building
+The chart type can be selected using the mat-select dropdown in the UI.
 
-To build the project run:
+Chart Display:
 
-```bash
-ng build
-```
+The appropriate chart (Bar, Line, or Pie) will be displayed based on the selected chart type.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Dynamic Data:
 
-## Running unit tests
+Data is fetched from a mock JSON file located at assets/data/metrics.json.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Each chart is populated dynamically with data from this file.
 
-```bash
-ng test
-```
+Example JSON Data (metrics.json)
+json
+Copy
+{
+"sales": [
+{ "name": "Jan", "value": 400 },
+{ "name": "Feb", "value": 450 },
+{ "name": "Mar", "value": 300 }
+],
+"performance": [
+{ "name": "Q1", "value": 30 },
+{ "name": "Q2", "value": 70 },
+{ "name": "Q3", "value": 50 }
+]
+}
+Chart Components
+BarChartComponent: Displays the data in a bar chart format using ngx-charts-bar-vertical.
 
-## Running end-to-end tests
+LineChartComponent: Displays the data in a line chart format using ngx-charts-line-chart.
 
-For end-to-end (e2e) testing, run:
+PieChartComponent: Displays the data in a pie chart format using ngx-charts-pie-chart.
 
-```bash
-ng e2e
-```
+Chart Customization
+You can customize the chart appearance by editing the following properties in each chart component:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+view: The size of the chart (e.g., [700, 400]).
 
-## Additional Resources
+colorScheme: Defines the color scheme for the chart.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+results: The actual data to be displayed in the chart. It is passed as an input from the parent component.
+
+Dependencies
+This project uses the following key dependencies:
+
+Angular: Framework for building the application.
+
+ngx-charts: A charting library based on Angular.
+
+Angular Material: For UI components like toolbar, form field, and select dropdown.
+
+HttpClientModule: For HTTP requests to fetch data from the mock JSON file.
